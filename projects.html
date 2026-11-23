@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alawol Hosain | Projects &amp; Achievements</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- COMMON NAVIGATION HEADER -->
+    <header class="site-header">
+      <div class="container nav-container">
+        <a href="index.html" class="brand-logo"><span>Alawol</span>Web</a>
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Toggle Menu"
+          aria-expanded="false"
+        >
+          &#9776;
+        </button>
+        <nav aria-label="Primary Navigation">
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li>
+              <a href="projects.html" class="nav-link active">Projects</a>
+            </li>
+            <li><a href="contact.html" class="nav-link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container reveal">
+          <span class="section-tag">Portfolio Showcase</span>
+          <h1 class="section-title">
+            Featured <span class="glow-text">Projects &amp; Work</span>
+          </h1>
+          <p class="section-subtitle">
+            Filter my recent web development projects by category or inspect
+            their technical specifications below.
+          </p>
+
+          <!-- INTERACTIVE FILTER BUTTONS -->
+          <div
+            class="filter-bar"
+            role="group"
+            aria-label="Filter projects by category"
+          >
+            <button class="filter-btn active" data-filter="all">
+              All Projects
+            </button>
+            <button class="filter-btn" data-filter="web">Web App</button>
+            <button class="filter-btn" data-filter="ui">UI/UX Design</button>
+            <button class="filter-btn" data-filter="js">JavaScript</button>
+          </div>
+
+          <!-- PROJECT CARDS GRID -->
+          <div class="grid-3">
+            <!-- Project 1 -->
+            <article class="glass-card project-card" data-category="web">
+              <img
+                src="assets/project1.svg"
+                alt="BlueWear Dashboard preview"
+                class="project-img"
+              />
+              <span class="badge">Web App</span>
+              <h3 style="margin-top: 0.75rem">BlueWear Clothing Brand</h3>
+              <p style="color: var(--text-muted); margin-top: 0.5rem">
+                A responsive analytics dashboard visualizing real-time traffic
+                and user metrics with CSS Grid.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="ext-link"
+                  >Source Code &#8599;</a
+                >
+                <a href="contact.html" class="ext-link">Request Demo &rarr;</a>
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="glass-card project-card" data-category="ui">
+              <img
+                src="assets/project2.svg"
+                alt="NovaShop E-Commerce UI preview"
+                class="project-img"
+              />
+              <span class="badge">UI/UX Design</span>
+              <h3 style="margin-top: 0.75rem">Sonali Hat</h3>
+              <p style="color: var(--text-muted); margin-top: 0.5rem">
+                Modern e-commerce interface featuring neon product cards,
+                interactive cart totals, and smooth transitions.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="ext-link"
+                  >Source Code &#8599;</a
+                >
+                <a href="contact.html" class="ext-link">Request Demo &rarr;</a>
+              </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="glass-card project-card" data-category="js">
+              <img
+                src="assets/project3.svg"
+                alt="TaskFlow Study Planner preview"
+                class="project-img"
+              />
+              <span class="badge">JavaScript</span>
+              <h3 style="margin-top: 0.75rem">TaskFlow Study Planner</h3>
+              <p style="color: var(--text-muted); margin-top: 0.5rem">
+                Interactive student task tracker with dynamic status badges,
+                local storage persistence, and priority sorting.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="ext-link"
+                  >Source Code &#8599;</a
+                >
+                <a href="contact.html" class="ext-link">Request Demo &rarr;</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROJECT SUMMARY TABLE -->
+      <section class="section">
+        <div class="container reveal">
+          <span class="section-tag">Technical Breakdown</span>
+          <h2 class="section-title">
+            Project &amp; <span class="glow-text">Achievement Summary</span>
+          </h2>
+
+          <div class="table-wrapper" style="margin-top: 1.5rem">
+            <table class="portfolio-table">
+              <thead>
+                <tr>
+                  <th>Project Title</th>
+                  <th>Technologies Used</th>
+                  <th>Key Achievement</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>BlueWear Clothing Brand</strong></td>
+                  <td>HTML5, CSS3 Grid, SVG</td>
+                  <td>Achieved 99/100 Lighthouse Performance Score</td>
+                  <td><span class="badge">Completed</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Sonali Hat</strong></td>
+                  <td>HTML5, CSS3 Animations, JS</td>
+                  <td>Design with agriculturer field</td>
+                  <td><span class="badge">Live</span></td>
+                </tr>
+                <tr>
+                  <td><strong>TaskFlow Study Planner</strong></td>
+                  <td>HTML5, JavaScript ES6, DOM</td>
+                  <td>Used by 5+ classmates for exam preperation</td>
+                  <td><span class="badge">Active</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- COMMON FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+          <a
+            href="https://github.com/alawoldiu"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
+        </div>
+        <p>&copy; 2026 Alawol Hosain.</p>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

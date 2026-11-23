@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 340" width="600" height="340">
+  <defs>
+    <linearGradient id="p2bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f0722"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="100%" stop-color="#ec4899"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="340" rx="16" fill="url(#p2bg)"/>
+  <rect x="30" y="30" width="250" height="280" rx="14" fill="#111827" stroke="#8b5cf6" stroke-opacity="0.5"/>
+  <rect x="50" y="54" width="120" height="16" rx="8" fill="url(#accent2)"/>
+  <rect x="50" y="84" width="200" height="10" rx="5" fill="#334155"/>
+  <rect x="50" y="102" width="170" height="10" rx="5" fill="#334155"/>
+  <rect x="50" y="132" width="210" height="110" rx="10" fill="#1e1b4b" stroke="#ec4899" stroke-opacity="0.4"/>
+  <circle cx="155" cy="187" r="34" fill="none" stroke="#00f5d4" stroke-width="5"/>
+  <path d="M142 187 L152 197 L172 176" fill="none" stroke="#00f5d4" stroke-width="4" stroke-linecap="round"/>
+  <rect x="50" y="258" width="110" height="32" rx="16" fill="url(#accent2)"/>
+  <!-- Right Panel -->
+  <rect x="304" y="30" width="266" height="130" rx="14" fill="#111827" stroke="#38bdf8" stroke-opacity="0.4"/>
+  <text x="326" y="68" font-family="sans-serif" font-size="16" fill="#f8fafc" font-weight="bold">NovaShop E-Commerce</text>
+  <text x="326" y="94" font-family="sans-serif" font-size="13" fill="#94a3b8">Dynamic Cart &amp; Instant Checkout UI</text>
+  <rect x="326" y="114" width="90" height="26" rx="13" fill="#00f5d4" fill-opacity="0.2" stroke="#00f5d4"/>
+  <text x="371" y="131" font-family="sans-serif" font-size="12" fill="#00f5d4" text-anchor="middle">HTML / JS</text>
+  <rect x="304" y="180" width="266" height="130" rx="14" fill="#111827" stroke="#00f5d4" stroke-opacity="0.4"/>
+  <polyline points="326,280 375,245 420,260 475,215 545,200" fill="none" stroke="#00f5d4" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="475" cy="215" r="6" fill="#ec4899"/>
+  <circle cx="545" cy="200" r="6" fill="#00f5d4"/>
+</svg>

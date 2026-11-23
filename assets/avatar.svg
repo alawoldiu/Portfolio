@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#042f2e"/>
+    </linearGradient>
+    <linearGradient id="neonRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f5d4"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <linearGradient id="shirtGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" rx="200" fill="url(#bgGrad)"/>
+  <circle cx="200" cy="200" r="188" fill="none" stroke="url(#neonRing)" stroke-width="6" stroke-dasharray="18 8"/>
+  <circle cx="200" cy="200" r="174" fill="none" stroke="#00f5d4" stroke-opacity="0.25" stroke-width="2"/>
+  <!-- Stylized Developer Avatar -->
+  <path d="M90 365 C95 290, 145 265, 200 265 C255 265, 305 290, 310 365 Z" fill="url(#shirtGrad)" stroke="#38bdf8" stroke-width="2"/>
+  <path d="M168 267 L200 315 L232 267" fill="none" stroke="#00f5d4" stroke-width="3"/>
+  <rect x="180" y="218" width="40" height="52" rx="16" fill="#f1c27d"/>
+  <circle cx="200" cy="172" r="56" fill="#ffdbac"/>
+  <!-- Hair -->
+  <path d="M144 168 C142 118, 175 98, 204 100 C238 102, 260 124, 256 168 C252 142, 232 132, 200 134 C170 136, 152 146, 144 168 Z" fill="#0f172a"/>
+  <!-- Glasses -->
+  <rect x="162" y="160" width="32" height="22" rx="6" fill="rgba(0,245,212,0.12)" stroke="#00f5d4" stroke-width="2.5"/>
+  <rect x="206" y="160" width="32" height="22" rx="6" fill="rgba(0,245,212,0.12)" stroke="#00f5d4" stroke-width="2.5"/>
+  <line x1="194" y1="170" x2="206" y2="170" stroke="#00f5d4" stroke-width="2.5"/>
+  <!-- Eyes & Smile -->
+  <circle cx="178" cy="171" r="3.5" fill="#0f172a"/>
+  <circle cx="222" cy="171" r="3.5" fill="#0f172a"/>
+  <path d="M186 196 Q200 208 214 196" fill="none" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+  <!-- Code Badge -->
+  <rect x="135" y="322" width="130" height="28" rx="14" fill="#060913" stroke="#00f5d4" stroke-width="1.5"/>
+  <text x="200" y="341" font-family="monospace" font-size="14" fill="#00f5d4" text-anchor="middle" font-weight="bold">&lt;Developer /&gt;</text>
+</svg>

@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alawol Hosain | Contact Me</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- COMMON NAVIGATION HEADER -->
+    <header class="site-header">
+      <div class="container nav-container">
+        <a href="index.html" class="brand-logo"><span>Alawol</span>Web</a>
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          aria-label="Toggle Menu"
+          aria-expanded="false"
+        >
+          &#9776;
+        </button>
+        <nav aria-label="Primary Navigation">
+          <ul class="nav-menu" id="navMenu">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="about.html" class="nav-link">About</a></li>
+            <li><a href="projects.html" class="nav-link">Projects</a></li>
+            <li><a href="contact.html" class="nav-link active">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="container reveal">
+          <div
+            style="text-align: center; max-width: 680px; margin: 0 auto 2.5rem"
+          >
+            <span class="section-tag">Let's Connect</span>
+            <h1 class="section-title">
+              Start a <span class="glow-text">Conversation</span>
+            </h1>
+            <p style="color: var(--text-muted)">
+              Have a project idea, internship opportunity, or feedback on my
+              portfolio? Fill out the interactive form below and receive instant
+              confirmation.
+            </p>
+          </div>
+
+          <!-- INTERACTIVE CONTACT FORM -->
+          <div class="glass-card form-card">
+            <form id="contactForm" novalidate>
+              <!-- Row 1: Text Input & Email Input -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="fullName" class="form-label">Full Name *</label>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    class="form-control"
+                    placeholder="e.g., Alawol Hosain"
+                    required
+                  />
+                  <div class="error-msg" id="nameError">
+                    Please enter your full name (at least 2 characters).
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="emailAddress" class="form-label"
+                    >Email Address *</label
+                  >
+                  <input
+                    type="email"
+                    id="emailAddress"
+                    name="emailAddress"
+                    class="form-control"
+                    placeholder="e.g., alawol@example.com"
+                    required
+                  />
+                  <div class="error-msg" id="emailError">
+                    Please enter a valid email address.
+                  </div>
+                </div>
+              </div>
+
+              <!-- Row 2: Radio Buttons -->
+              <div class="form-group">
+                <span class="form-label">Inquiry Type *</span>
+                <div class="option-group">
+                  <label class="option-pill">
+                    <input
+                      type="radio"
+                      name="inquiryType"
+                      value="Project Collaboration"
+                      checked
+                    />
+                    Project Collaboration
+                  </label>
+                  <label class="option-pill">
+                    <input
+                      type="radio"
+                      name="inquiryType"
+                      value="Internship / Job Opportunity"
+                    />
+                    Internship / Job Opportunity
+                  </label>
+                  <label class="option-pill">
+                    <input
+                      type="radio"
+                      name="inquiryType"
+                      value="General Feedback"
+                    />
+                    General Feedback
+                  </label>
+                </div>
+              </div>
+
+              <!-- Row 3: Checkboxes -->
+              <div class="form-group">
+                <span class="form-label"
+                  >Topics / Services Interested In *</span
+                >
+                <div class="option-group">
+                  <label class="option-pill">
+                    <input
+                      type="checkbox"
+                      name="services"
+                      value="Web Development"
+                      checked
+                    />
+                    Web Development
+                  </label>
+                  <label class="option-pill">
+                    <input
+                      type="checkbox"
+                      name="services"
+                      value="UI/UX Design"
+                    />
+                    UI/UX Design
+                  </label>
+                  <label class="option-pill">
+                    <input
+                      type="checkbox"
+                      name="services"
+                      value="Problem Solving"
+                    />
+                    Problem Solving (C, Python)
+                  </label>
+                </div>
+                <div class="error-msg" id="serviceError">
+                  Please select at least one topic or service.
+                </div>
+              </div>
+
+              <!-- Row 4: Dropdown (<select>) -->
+              <div class="form-group">
+                <label for="timeline" class="form-label"
+                  >Preferred Timeline</label
+                >
+                <select id="timeline" name="timeline" class="form-control">
+                  <option value="Immediate (Within 1 Day)">
+                    Immediate (Within 1 Day)
+                  </option>
+                  <option value="Short-Term (1-2 Weeks)" selected>
+                    Short-Term (1-2 Weeks)
+                  </option>
+                  <option value="Long-Term / Flexible">
+                    Long-Term / Flexible
+                  </option>
+                </select>
+              </div>
+
+              <!-- Row 5: Textarea -->
+              <div class="form-group">
+                <label for="message" class="form-label">Your Message *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  class="form-control"
+                  placeholder="Write your message, project details, or questions here..."
+                  required
+                ></textarea>
+                <div class="error-msg" id="messageError">
+                  Please write a message of at least 10 characters.
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-glow" style="width: 100%">
+                Send Message &#10148;
+              </button>
+            </form>
+
+            <!-- Dynamic Submission Receipt -->
+            <div
+              class="form-feedback"
+              id="formFeedback"
+              role="status"
+              aria-live="polite"
+            ></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- COMMON FOOTER -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+          <a
+            href="https://github.com/alawoldiu"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
+        </div>
+        <p>&copy; 2026 Alawol Hosain.</p>
+      </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>
