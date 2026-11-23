@@ -1,7 +1,7 @@
 /* ==========================================================================
    PERSONAL PORTFOLIO INTERACTIVE SCRIPT
    Includes: Dynamic Typing Animation, Scroll Reveal, Mobile Menu,
-             Animated Counters, Project Filtering & Form Validation
+             Animated Counters, Project Filtering & Email Form Submission
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,7 +31,7 @@ function initTypingEffect() {
   const typingElement = document.getElementById('typingText');
   if (!typingElement) return;
 
-  // EDIT: Customize these roles to match your own skills
+  // Customize these roles to match your own skills
   const roles = [
     'Full-Stack Web Developer',
     'Frontend UI/UX Designer',
@@ -139,36 +139,42 @@ function initProjectFilter() {
   });
 }
 
-/* 6. Interactive Contact Form Validation & Submission Feedback */
+/* 6. Interactive Contact Form Validation & Web3Forms Email Delivery */
 function initContactForm() {
   const form = document.getElementById('contactForm');
   if (!form) return;
 
-  form.addEventListener('submit', (event) => {
+  form.addEventListener('submit', async (event) => {
+    // Prevent default browser page reload
     event.preventDefault();
 
+    // Collect references to form fields and UI feedback elements
     const nameInput = document.getElementById('fullName');
     const emailInput = document.getElementById('emailAddress');
     const timelineSelect = document.getElementById('timeline');
     const messageInput = document.getElementById('message');
     const feedbackBox = document.getElementById('formFeedback');
+    const submitBtn = form.querySelector('button[type="submit"]');
 
     let isValid = true;
 
-    // Reset previous errors
+    // Hide any previous validation error messages
     document.querySelectorAll('.error-msg').forEach((el) => (el.style.display = 'none'));
 
+    // Validate Full Name (minimum 2 characters)
     if (nameInput.value.trim().length < 2) {
       document.getElementById('nameError').style.display = 'block';
       isValid = false;
     }
 
+    // Validate Email Format using Regular Expression
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(emailInput.value.trim())) {
       document.getElementById('emailError').style.display = 'block';
       isValid = false;
     }
 
+    // Validate at least one Checkbox (Services/Topics) is selected
     const checkedServices = Array.from(
       document.querySelectorAll('input[name="services"]:checked')
     ).map((cb) => cb.value);
@@ -178,31 +184,78 @@ function initContactForm() {
       isValid = false;
     }
 
+    // Validate Message Textarea (minimum 10 characters)
     if (messageInput.value.trim().length < 10) {
       document.getElementById('messageError').style.display = 'block';
       isValid = false;
     }
 
+    // Stop submission if any validation rule fails
     if (!isValid) return;
 
+    // Store clean user inputs before resetting the form
+    const senderName = nameInput.value.trim();
+    const senderEmail = emailInput.value.trim();
     const selectedInquiry =
       document.querySelector('input[name="inquiryType"]:checked')?.value || 'General';
+    const selectedTimeline = timelineSelect.value;
 
-    feedbackBox.innerHTML = `
-      <h4 class="neon-accent" style="margin-bottom: 0.5rem;">Message Sent Successfully!</h4>
-      <p>Thank you, <strong>${escapeHTML(nameInput.value.trim())}</strong>. Your inquiry has been recorded:</p>
-      <ul class="styled-ul" style="margin-top: 0.75rem;">
-        <li><strong>Email:</strong> ${escapeHTML(emailInput.value.trim())}</li>
-        <li><strong>Inquiry Type:</strong> ${escapeHTML(selectedInquiry)}</li>
-        <li><strong>Topics:</strong> ${escapeHTML(checkedServices.join(', '))}</li>
-        <li><strong>Timeline:</strong> ${escapeHTML(timelineSelect.value)}</li>
-      </ul>
-    `;
-    feedbackBox.style.display = 'block';
-    form.reset();
+    // Build FormData (automatically includes hidden access_key & subject from contact.html)
+    const formData = new FormData(form);
+    // Combine multiple checked checkboxes into a single comma-separated string for cleaner email formatting
+    formData.delete('services');
+    formData.append('services', checkedServices.join(', '));
+
+    // Disable submit button while sending request to prevent duplicate clicks
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending Message...';
+
+    try {
+      // Send form data asynchronously to Web3Forms API
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        // Show on-page confirmation receipt after email is successfully dispatched
+        feedbackBox.innerHTML = `
+          <h4 class="neon-accent" style="margin-bottom: 0.5rem;">Message Sent Successfully!</h4>
+          <p>Thank you, <strong>${escapeHTML(senderName)}</strong>. Your inquiry has been delivered to my email:</p>
+          <ul class="styled-ul" style="margin-top: 0.75rem;">
+            <li><strong>Email:</strong> ${escapeHTML(senderEmail)}</li>
+            <li><strong>Inquiry Type:</strong> ${escapeHTML(selectedInquiry)}</li>
+            <li><strong>Topics:</strong> ${escapeHTML(checkedServices.join(', '))}</li>
+            <li><strong>Timeline:</strong> ${escapeHTML(selectedTimeline)}</li>
+          </ul>
+        `;
+        feedbackBox.style.display = 'block';
+        form.reset();
+      } else {
+        // Handle API-side error (e.g., invalid access key)
+        feedbackBox.innerHTML = `
+          <p style="color: #fb7185;"><strong>Submission Failed:</strong> ${escapeHTML(
+            result.message || 'Unable to send message right now. Please try again.'
+          )}</p>
+        `;
+        feedbackBox.style.display = 'block';
+      }
+    } catch (error) {
+      // Handle offline / network connectivity errors
+      feedbackBox.innerHTML = `
+        <p style="color: #fb7185;"><strong>Network Error:</strong> Please check your internet connection and try again.</p>
+      `;
+      feedbackBox.style.display = 'block';
+    } finally {
+      // Restore submit button to original state
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Send Message &#10148;';
+    }
   });
 }
 
+/* Helper Function: Sanitize HTML characters to prevent XSS in feedback preview */
 function escapeHTML(str) {
   return str
     .replace(/&/g, '&amp;')
